@@ -1,6 +1,20 @@
-var games = ["Super Mario World", "Final Fantasy III", "Sonic the Hedgehog", "Road Rash", "Legend of Zelda", "Mortal Kombat", "Wolfstein", "Dune", "Doom", "Virtua Fighter", "Master of Orion", "Warcraft", "Star Wars Dark Forces", "Need for Speed", "Quake"];
+//Creates an array listing Iconic 90 video games
+var games = ["Super Mario World", "Final Fantasy III", "Sonic the Hedgehog",
+            "Road Rash", "Legend of Zelda", "Mortal Kombat", 
+            "Wolfstein", "Dune", "Doom", 
+            "Virtua Fighter", "Master of Orion", "Warcraft", 
+            "Star Wars Dark Forces", "Need for Speed", "Quake"];
 
+// Creating variables to hold # of guesses & wins
+var guessesLeft = 12;
+var wins = 0;
+
+// Create variables that hold refs to places in HTML where we want to display
+var directionsText = document.getElementById("directions-text");
 var userText = document.getElementById("user-text");
+var winsText = document.getElementById("wins-text");
+var guessesText = document.getElementById("guessesText");
+
 
 //This code will listen for user keyboard inputs
 document.onkeyup = function(event) {
