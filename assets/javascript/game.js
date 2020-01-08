@@ -4,6 +4,7 @@ var games = ["Super Mario World", "Final Fantasy III", "Sonic the Hedgehog",
             "Wolfstein", "Dune", "Doom", 
             "Virtua Fighter", "Master of Orion", "Warcraft", 
             "Star Wars Dark Forces", "Need for Speed", "Quake"];
+            console.log(games.length);
 
 // Creating variables to hold # of guesses & wins
 var guessesLeft = 12;
@@ -19,9 +20,16 @@ var guessesText = document.getElementById("guessesText");
 //This code will listen for user keyboard inputs
 document.onkeyup = function(event) {
     
+    //Prints user key strokes
     userText.textContent = event.key;
-    
+
+    //Randomly chooses a choice from the games array. This is the comp guess.
+    var computerChoice = games[Math.floor(Math.random() * games.length)];
+   
+    console.log(computerChoice);
 }
+
+
 // var gamesBlank = games.map(myFunction); //This line creates a new array by performing a function on each array element
 
 // var a = fruits.indexOf("Apple"); //This line searches for an element by index
