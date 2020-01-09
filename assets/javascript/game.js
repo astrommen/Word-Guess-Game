@@ -14,7 +14,19 @@ var wins = 0;
 var directionsText = document.getElementById("directions-text");
 var userText = document.getElementById("user-text");
 var winsText = document.getElementById("wins-text");
-var guessesText = document.getElementById("guessesText");
+var guessesText = document.getElementById("guesses-text");
+var blanksText = document.getElementById("blanks-text")
+
+
+//Randomly chooses a choice from the games array. This is the comp guess.
+var computerChoice = games[Math.floor(Math.random() * games.length)];
+
+console.log(computerChoice);
+//For loop that writes "_ " for every character
+for (var i = 0; i < computerChoice.length; i++) {
+    blanksText = document.write("_ ");
+    console.log(i);
+}
 
 
 //This code will listen for user keyboard inputs
@@ -22,12 +34,7 @@ document.onkeyup = function(event) {
     
     //Prints user key strokes
     userText.textContent = event.key;
-
-    //Randomly chooses a choice from the games array. This is the comp guess.
-    var computerChoice = games[Math.floor(Math.random() * games.length)];
-   
-    console.log(computerChoice);
-}
+}  
 
 
 // var gamesBlank = games.map(myFunction); //This line creates a new array by performing a function on each array element
