@@ -5,6 +5,10 @@ var games = ["Super Mario World", "Final Fantasy III", "Sonic the Hedgehog",
             "Virtua Fighter", "Master of Orion", "Warcraft", 
             "Star Wars Dark Forces", "Need for Speed", "Quake"];
             console.log(games.length);
+            console.log(games.length);
+
+//empty array for comparison to user keys            
+var arr = [];
 
 // Creating variables to hold # of guesses & wins
 var guessesLeft = 12;
@@ -22,12 +26,6 @@ var blanksText = document.getElementById("blanks-text")
 var computerChoice = games[Math.floor(Math.random() * games.length)];
 
 console.log(computerChoice);
-//For loop that writes "_ " for every character
-for (var i = 0; i < computerChoice.length; i++) {
-    blanksText = document.write("_ ");
-    console.log(i);
-}
-
 
 //This code will listen for user keyboard inputs
 document.onkeyup = function(event) {
@@ -35,6 +33,17 @@ document.onkeyup = function(event) {
     //Prints user key strokes
     userText.textContent = event.key;
 }  
+//For loop that writes "_ " for every character
+for (var i = 0; i < computerChoice.length; i++) {
+    
+    blanksText = "_";
+    console.log(i);
+
+    //This line pushes each char into the arr array
+    arr.push(computerChoice[i]);
+}
+
+
 
 
 // var gamesBlank = games.map(myFunction); //This line creates a new array by performing a function on each array element
