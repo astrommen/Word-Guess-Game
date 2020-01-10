@@ -6,20 +6,35 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     
+    <script src="./assets/javascript/game.js"></script>
   </head>
+  
   <body>
     <div class="container">
       <div class="row">
         <div class="col-md-offset-2 col-md-8">
           <div class="jumbotron">
+             
+            <!-- Game Title -->
             <h1>Welcome to Word Guess Game!</h1>
+            
+            <!-- Wins Area -->
+            <h4>Wins</h4>
+            <h3><span id="wins-text"></span></h3>
+            
+            <h4>Current Word</h4>
+            
+            <!-- Hidden Game Name Area -->
+            <h2><span id="blanks"> </span><h2></h2>
+            
+            <!-- Guess Remaining -->
+            <h4>Number of Guess Left: <span id="guesses-text"></span></h4>
+            
+            <!-- Letters Guessed Area -->
             <h2>Letters guessed <span id="user-text"><strong>...Nothing.</strong></span></h2>
-            <h3><span id="blanks-text"></span></h3>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <script src="./assets/javascript/game.js"></script>
-
+        
+          </div> <!-- E/O Jumbotron-->
+        </div> <!-- E/O col-->
+      </div>  <!-- E/O row-->
+    </div>  <!-- E/O container-->
 </body>
