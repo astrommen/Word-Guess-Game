@@ -4,8 +4,6 @@ var games = ["Super Mario World", "Final Fantasy III", "Sonic the Hedgehog",
             "Wolfstein", "Dune", "Doom", 
             "Virtua Fighter", "Master of Orion", "Warcraft", 
             "Star Wars Dark Forces", "Need for Speed", "Quake"];
-            console.log(games.length);
-            console.log(games.length);
 
 //empty array for comparison to user keys            
 var arr = [];
@@ -19,25 +17,34 @@ var directionsText = document.getElementById("directions-text");
 var userText = document.getElementById("user-text");
 var winsText = document.getElementById("wins-text");
 var guessesText = document.getElementById("guesses-text");
-var blanksText = document.getElementById("blanks-text")
+var blanksText = document.getElementById("blanks")
 
 
 //Randomly chooses a choice from the games array. This is the comp guess.
 var computerChoice = games[Math.floor(Math.random() * games.length)];
 
-console.log(computerChoice);
+console.log(computerChoice);//For testing purposes
 
 //This code will listen for user keyboard inputs
 document.onkeyup = function(event) {
     
     //Prints user key strokes
+    userText.textContent += event.key + " "; 
     userText.textContent = event.key;
 }  
 //For loop that writes "_ " for every character
 for (var i = 0; i < computerChoice.length; i++) {
     
-    blanksText = "_";
-    console.log(i);
+    //If/ElseIf to check for spaces and add them
+		//This works
+    if (computerChoice[i] !== " "){
+
+        blanksText.textContent += "_ ";
+
+    } else if (computerChoice[i] === " "){
+
+        blanksText.textContent += "\xa0\xa0";
+    }
 
     //This line pushes each char into the arr array
     arr.push(computerChoice[i]);
