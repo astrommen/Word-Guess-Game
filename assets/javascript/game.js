@@ -1,9 +1,9 @@
 //Creates an array listing Iconic 90 video games
-var games = ["Super Mario World", "Final Fantasy III", "Sonic the Hedgehog",
-            "Road Rash", "Legend of Zelda", "Mortal Kombat", 
-            "Wolfstein", "Dune", "Doom", 
-            "Virtua Fighter", "Master of Orion", "Warcraft", 
-            "Star Wars Dark Forces", "Need for Speed", "Quake"];
+var games = ["SUPER MARIO WORLD", "FINAL FANTASY III", "SONIC THE HEDGEHOG", "BANJO KAZOOIE",
+            "ROAD RASH", "LEGEND OF ZELDA", "MORTAL KOMBAT", "HALF-LIFE", "POKEMON RED AND BLUE",
+            "WOLFSTEIN", "DUNE", "DOOM", "TOMBRAIDER", "SPRYO", "CHRONO TRIGGER", "STARCRAFT",
+            "VIRTUA FIGHTER", "MASTER OF ORION", "WARCRAFT", "GOLDENEYE 007", "METAL GEAR SOLID",
+            "DIABLO", "SILENT HILL", "CIVILIZATION", "NEED FOR SPEED", "QUAKE", "DUKE NUKEM 3D"];
 
 //empty array for comparison to user keys            
 var arr;
@@ -51,17 +51,18 @@ if (guessesLeft > 0){
     document.onkeyup = function(event) {
         
         //Prints user key strokes
-        userText2 = event.key;//used for win/guesses leftcheck
+        userKey = event.key;//used for win/guesses leftcheck
         
+        var userGuess = userKey.toUpperCase();//changes userKey to upper case
         
-        if (computerChoice.includes(userText2)){ 
+        if (computerChoice.includes(userGuess)){ 
 
             for (j = 0; j < computerChoice.length; j++) {
 
-                if (userText2 == computerChoice[j]){  
+                if (userGuess == computerChoice[j]){  
 
-                //Changes blanks in position to userText
-                arrblanks[j] = userText2;
+                //Changes blanks in position to userGuess
+                arrblanks[j] = userGuess;
 
                 //Prints new arrblanks to html
                 blanksText.textContent = arrblanks.join(" ");
@@ -71,8 +72,8 @@ if (guessesLeft > 0){
             }
         }  else {
 
-                guessesLeft--; console.log(userText2);
-                userText.textContent += event.key + " "; //cant get to work
+                guessesLeft--; console.log(userKey);
+                userText.textContent += event.key + " ";
         }
         
         guessesText.textContent = guessesLeft;
