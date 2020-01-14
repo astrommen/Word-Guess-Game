@@ -6,7 +6,7 @@ var games = ["SUPER MARIO WORLD", "FINAL FANTASY III", "SONIC THE HEDGEHOG", "BA
             "DIABLO", "SILENT HILL", "CIVILIZATION", "NEED FOR SPEED", "QUAKE", "DUKE NUKEM 3D"];
 
 //empty array for comparison to user keys            
-var arr;
+var arr=[];
 var arrblanks = [];
 var userText2;
 
@@ -21,6 +21,9 @@ var winsText = document.getElementById("wins-text");
 var guessesText = document.getElementById("guesses-text");
 var blanksText = document.getElementById("blanks")
 
+// do { not sure yet
+
+// -- Initializing Game --
 //Randomly chooses a choice from the games array. This is the comp guess.
 var computerChoice = games[Math.floor(Math.random() * games.length)];
 
@@ -35,25 +38,27 @@ for (i = 0; i < computerChoice.length; i++) {
         
         // blanksText.textContent += "_ ";
         arrblanks.push("_");
+        arr.push(computerChoice[i]);
         
     } else {
         
         // blanksText.textContent += "\xa0\xa0";
         arrblanks.push("\xa0\xa0");
+        
     }   
 }
-
+console.log(arr);
 //Prints the blanks to html
 blanksText.textContent += arrblanks.join(" ");
 
-if (guessesLeft > 0){
+    //-- Playing the Game --
     //This code will listen for user keyboard inputs
     document.onkeyup = function(event) {
         
         //Prints user key strokes
         userKey = event.key;//used for win/guesses leftcheck
         
-        var userGuess = userKey.toUpperCase();//changes userKey to upper case
+        var userGuess = userKey.toUpperCase();console.log(userGuess);//changes userKey to upper case
         
         if (computerChoice.includes(userGuess)){ 
 
@@ -67,21 +72,36 @@ if (guessesLeft > 0){
                 //Prints new arrblanks to html
                 blanksText.textContent = arrblanks.join(" ");
                 
-                arr++;
+                //Removes elements from the array
+                arr.length--;
                 }
             }
         }  else {
 
-                guessesLeft--; console.log(userKey);
+                //Decreases amount of guesses left
+                guessesLeft--; 
+
+                //Prints wrong guess to Letters Guessed Area
                 userText.textContent += event.key + " ";
         }
         
+        //Prints amount of guesses left
         guessesText.textContent = guessesLeft;
+        console.log(arr); //ftp only
+        console.log(computerChoice.length);//ftp only
+
+        // -- End of Game (Win/Lose Condition) --
+        if (guessesLeft == 0) {
+            alert("GAME OVER!");
+        } else if (arr.length == 0) {
+            alert("You win!");
+        }
     }
-
-} 
-
-// var gamesBlank = games.map(myFunction); //This line creates a new array by performing a function on each array element
+    
+    
+    // } while ((guessesLeft > 0))
+    
+    // var gamesBlank = games.map(myFunction); //This line creates a new array by performing a function on each array element
 
 // var a = fruits.indexOf("Apple"); //This line searches for an element by index
 
