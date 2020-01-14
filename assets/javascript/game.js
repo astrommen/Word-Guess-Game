@@ -53,21 +53,29 @@ document.onkeyup = function(event) {
     //Prints user key strokes
     userText2 = event.key;//used for win/guesses leftcheck
     
-    for (j = 0; j < computerChoice.length; j++) {   
-        
-        if (userText2 == computerChoice[j]){ 
+    
+    if (computerChoice.includes(userText2)){ 
+
+        for (j = 0; j < computerChoice.length; j++) {
+
+            if (userText2 == computerChoice[j]){  
+
             //Changes blanks in position to userText
             arrblanks[j] = userText2;
+
             //Prints new arrblanks to html
-			blanksText.textContent = arrblanks.join(" ");
+            blanksText.textContent = arrblanks.join(" ");
             
-        } // cant get the else to work else {
-          //  guessesLeft--;
-          //  userText2.textContent += event.key + " "; 
-            
-            
-          //}  
+            arr++;
+            }
+        }
+    }  else {
+
+            guessesLeft--;
+            userText2.textContent += event.key + " "; 
     }
+    
+    guessesText.textContent = guessesLeft;
 }
 
 
