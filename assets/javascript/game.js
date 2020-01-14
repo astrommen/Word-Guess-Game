@@ -6,7 +6,7 @@ var games = ["Super Mario World", "Final Fantasy III", "Sonic the Hedgehog",
             "Star Wars Dark Forces", "Need for Speed", "Quake"];
 
 //empty array for comparison to user keys            
-var arr = [];
+var arr;
 var arrblanks = [];
 var userText2;
 
@@ -16,11 +16,10 @@ var wins = 0;
 
 // Create variables that hold refs to places in HTML where we want to display
 var directionsText = document.getElementById("directions-text");
-var userText2 = document.getElementById("user-text");
+var userText = document.getElementById("user-text");
 var winsText = document.getElementById("wins-text");
 var guessesText = document.getElementById("guesses-text");
 var blanksText = document.getElementById("blanks")
-
 
 //Randomly chooses a choice from the games array. This is the comp guess.
 var computerChoice = games[Math.floor(Math.random() * games.length)];
@@ -37,7 +36,7 @@ for (i = 0; i < computerChoice.length; i++) {
         // blanksText.textContent += "_ ";
         arrblanks.push("_");
         
-    } else if (computerChoice[i] === " "){
+    } else {
         
         // blanksText.textContent += "\xa0\xa0";
         arrblanks.push("\xa0\xa0");
@@ -47,38 +46,39 @@ for (i = 0; i < computerChoice.length; i++) {
 //Prints the blanks to html
 blanksText.textContent += arrblanks.join(" ");
 
-//This code will listen for user keyboard inputs
-document.onkeyup = function(event) {
-    
-    //Prints user key strokes
-    userText2 = event.key;//used for win/guesses leftcheck
-    
-    
-    if (computerChoice.includes(userText2)){ 
+if (guessesLeft > 0){
+    //This code will listen for user keyboard inputs
+    document.onkeyup = function(event) {
+        
+        //Prints user key strokes
+        userText2 = event.key;//used for win/guesses leftcheck
+        
+        
+        if (computerChoice.includes(userText2)){ 
 
-        for (j = 0; j < computerChoice.length; j++) {
+            for (j = 0; j < computerChoice.length; j++) {
 
-            if (userText2 == computerChoice[j]){  
+                if (userText2 == computerChoice[j]){  
 
-            //Changes blanks in position to userText
-            arrblanks[j] = userText2;
+                //Changes blanks in position to userText
+                arrblanks[j] = userText2;
 
-            //Prints new arrblanks to html
-            blanksText.textContent = arrblanks.join(" ");
-            
-            arr++;
+                //Prints new arrblanks to html
+                blanksText.textContent = arrblanks.join(" ");
+                
+                arr++;
+                }
             }
+        }  else {
+
+                guessesLeft--; console.log(userText2);
+                userText.textContent += event.key + " "; //cant get to work
         }
-    }  else {
-
-            guessesLeft--;
-            userText2.textContent += event.key + " "; 
+        
+        guessesText.textContent = guessesLeft;
     }
-    
-    guessesText.textContent = guessesLeft;
-}
 
-
+} 
 
 // var gamesBlank = games.map(myFunction); //This line creates a new array by performing a function on each array element
 
