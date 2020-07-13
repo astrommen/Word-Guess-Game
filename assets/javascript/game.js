@@ -54,43 +54,48 @@ blanksText.textContent += arrblanks.join(" ");
     //-- Playing the Game --
     //This code will listen for user keyboard inputs
     document.onkeyup = function(event) {
+
+        var regex = /^[a-z0-9]+$/;
         
         //Prints user key strokes
         userKey = event.key;//used for win/guesses leftcheck
         
         var userGuess = userKey.toUpperCase();console.log(userGuess);//changes userKey to upper case
         
-        if (computerChoice.includes(userGuess) && !arrblanks.includes(userGuess)){ 
+        if (/^[a-z0-9]+$/.test(userGuess)){
 
-            for (j = 0; j < computerChoice.length; j++) {
-
-                if (userGuess == computerChoice[j]){  
-
-                    //Checks for the same letter
-                    if (!arrblanks.includes(userGuess)){
-
-                        //Changes blanks in position to userGuess
-                        arrblanks[j] = userGuess; console.log(arrblanks);
-        
-                        //Prints new arrblanks to html
-                        blanksText.textContent = arrblanks.join(" ");
-                        
-                        //Removes elements from the array
-                        arr.length--;
+            if (computerChoice.includes(userGuess) && !arrblanks.includes(userGuess)){ 
+    
+                for (j = 0; j < computerChoice.length; j++) {
+    
+                    if (userGuess == computerChoice[j]){  
+    
+                        //Checks for the same letter
+                        if (!arrblanks.includes(userGuess)){
+    
+                            //Changes blanks in position to userGuess
+                            arrblanks[j] = userGuess; console.log(arrblanks);
+            
+                            //Prints new arrblanks to html
+                            blanksText.textContent = arrblanks.join(" ");
+                            
+                            //Removes elements from the array
+                            arr.length--;
+                        }
                     }
+    
                 }
-
+            }  else if (!lettersGuessedArr.includes(userGuess) && !arrblanks.includes(userGuess)) {
+    
+                    //Put wrong guess into an array
+                    lettersGuessedArr.push(userGuess); console.log(lettersGuessedArr);
+    
+                    //Decreases amount of guesses left
+                    guessesLeft--; 
+    
+                    //Prints wrong guess to Letters Guessed Area
+                    userText.textContent += userKey.toUpperCase() + " ";
             }
-        }  else if (!lettersGuessedArr.includes(userGuess) && !arrblanks.includes(userGuess)) {
-
-                //Put wrong guess into an array
-                lettersGuessedArr.push(userGuess); console.log(lettersGuessedArr);
-
-                //Decreases amount of guesses left
-                guessesLeft--; 
-
-                //Prints wrong guess to Letters Guessed Area
-                userText.textContent += userKey.toUpperCase() + " ";
         }
         
         //Prints amount of guesses left
