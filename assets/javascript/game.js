@@ -8,7 +8,7 @@ var games = ["SUPER MARIO WORLD", "FINAL FANTASY III", "SONIC THE HEDGEHOG", "BA
 //empty array for comparison to user keys            
 var arr=[];
 var arrblanks = [];
-var userText2;
+var lettersGuessedArr = [];
 
 // Creating variables to hold # of guesses & wins
 var guessesLeft = 12;
@@ -60,7 +60,7 @@ blanksText.textContent += arrblanks.join(" ");
         
         var userGuess = userKey.toUpperCase();console.log(userGuess);//changes userKey to upper case
         
-        if (computerChoice.includes(userGuess)){ 
+        if (computerChoice.includes(userGuess) && !arrblanks.includes(userGuess)){ 
 
             for (j = 0; j < computerChoice.length; j++) {
 
@@ -81,13 +81,16 @@ blanksText.textContent += arrblanks.join(" ");
                 }
 
             }
-        }  else {
+        }  else if (!lettersGuessedArr.includes(userGuess) && !arrblanks.includes(userGuess)) {
+
+                //Put wrong guess into an array
+                lettersGuessedArr.push(userGuess); console.log(lettersGuessedArr);
 
                 //Decreases amount of guesses left
                 guessesLeft--; 
 
                 //Prints wrong guess to Letters Guessed Area
-                userText.textContent += event.key + " ";
+                userText.textContent += userKey.toUpperCase() + " ";
         }
         
         //Prints amount of guesses left
