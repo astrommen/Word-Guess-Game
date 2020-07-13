@@ -2,6 +2,8 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title>90sVideoGameHangman!</title>
 
     <!-- Bootstrap 4.5.0 -->
@@ -16,32 +18,47 @@
   </head>
   
   <body>
-    <div class="container-fluid">
-      <!-- <div class="row"> -->
+    <div class="container-fluid d-flex align-items-center flex-column">
+      <div class="nav-bar text-center">
+        
+        <!-- Game Title -->
+        <h1>90's Video Game Word Guess</h1>
+        
+        <!-- <div class="row"> -->
         <!-- <div class="col-md-offset-2 col-md-8"> -->
-          <div class="jumbotron">
-            
-            <!-- Game Title -->
-            <h1>Welcome to 90's Video Game Word Guess!</h1>
-            
-            <!-- Wins Area -->
-            <h4>Wins</h4>
-            <h3><span id="wins-text"></span></h3>
-            
-            <h4>Current Word</h4>
-            
-            <!-- Hidden Game Name Area -->
-            <h2><span id="blanks"> </span><h2></h2>
-            
-            <!-- Guess Remaining -->
-            <h4>Number of Guess Left: <span id="guesses-text">12</span></h4>
-            
-            <!-- Letters Guessed Area -->
-            <h2>Letters guessed <span id="user-text"><strong></strong></span></h2>
-            
-          </div> <!-- E/O Jumbotron -->
+        
+      </div> <!-- E/O Jumbotron -->
+      <div class="jumbotron text-center">
+
+        <div class="row"></div>
+
+        <!-- Wins Area -->
+        <div class="row">
+          <h4>Wins</h4>
+          <h3><span id="wins-text"></span></h3>
+        </div>
+
+        <!-- Play Area -->
+        <div class="row">
+          <h4>Current Word</h4>
+        </div>
+        <div class="row">
+          <!-- Hidden Game Name Area -->
+          <h2><span id="blanks"> </span></h2>
+        </div>
+
+        <!-- Guess Remaining -->
+        <div class="row">
+          <h4>Number of Guess Left: <span id="guesses-text">12</span></h4>
+        </div>
+
+        <!-- Letters Guessed Area -->
+        <div class="row">
+          <h2>Letters guessed <span id="user-text"><strong></strong></span></h2>
+        </div>
+      </div>
         <!-- </div> E/O col -->
       <!-- </div>  E/O row -->
-    </div>  <!-- E/O container-->
+        </div>  <!-- E/O container-->
     <script src="./assets/javascript/game.js"></script>
 </body>
