@@ -66,15 +66,20 @@ blanksText.textContent += arrblanks.join(" ");
 
                 if (userGuess == computerChoice[j]){  
 
-                //Changes blanks in position to userGuess
-                arrblanks[j] = userGuess;
+                    //Checks for the same letter
+                    if (!arrblanks.includes(userGuess)){
 
-                //Prints new arrblanks to html
-                blanksText.textContent = arrblanks.join(" ");
-                
-                //Removes elements from the array
-                arr.length--;
+                        //Changes blanks in position to userGuess
+                        arrblanks[j] = userGuess; console.log(arrblanks);
+        
+                        //Prints new arrblanks to html
+                        blanksText.textContent = arrblanks.join(" ");
+                        
+                        //Removes elements from the array
+                        arr.length--;
+                    }
                 }
+
             }
         }  else {
 
