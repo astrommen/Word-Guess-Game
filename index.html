@@ -10,6 +10,9 @@
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
+    <!-- Home CSS Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+
     <!-- JS, Popper.js, and jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -17,48 +20,80 @@
     
   </head>
   
-  <body>
-    <div class="container-fluid d-flex align-items-center flex-column">
+  <body class="text-center">
+    <!-- <div class="container-fluid d-flex align-items-center flex-column">
       <div class="nav-bar text-center">
         
-        <!-- Game Title -->
+        Game Title
         <h1>90's Video Game Word Guess</h1>
-        
-        <!-- <div class="row"> -->
-        <!-- <div class="col-md-offset-2 col-md-8"> -->
-        
-      </div> <!-- E/O Jumbotron -->
+
+      </div> E/O Jumbotron
       <div class="jumbotron text-center">
 
         <div class="row"></div>
 
-        <!-- Wins Area -->
+        Wins Area
         <div class="row">
           <h4>Wins</h4>
           <h3><span id="wins-text"></span></h3>
         </div>
 
-        <!-- Play Area -->
+        Play Area
         <div class="row">
           <h4>Current Word</h4>
         </div>
         <div class="row">
-          <!-- Hidden Game Name Area -->
+          Hidden Game Name Area
           <h2><span id="blanks"> </span></h2>
         </div>
 
-        <!-- Guess Remaining -->
+        Guess Remaining
         <div class="row">
           <h4>Number of Guess Left: <span id="guesses-text">12</span></h4>
         </div>
 
-        <!-- Letters Guessed Area -->
+        Letters Guessed Area
         <div class="row">
           <h2>Letters guessed <span id="user-text"><strong></strong></span></h2>
         </div>
       </div>
-        <!-- </div> E/O col -->
-      <!-- </div>  E/O row -->
-        </div>  <!-- E/O container-->
+        </div> E/O col
+      </div>  E/O row
+        </div>  E/O container -->
+
+        <div class="cover-container d-flex mx-auto flex-column">
+          <main role="main" class="inner cover">
+            
+            <h1 class="cover-heading">90's Video Game Word Guess</h1>
+              <section class="lead game-block">
+            
+                <!-- Wins Area -->
+                <p class="lead row">
+                  <h4>Wins</h4>
+                  <h3><span id="wins-text"></span></h3>
+                </p>
+
+                <!-- Play Area -->
+                <p class="lead">
+                  <h4>Current Word</h4>
+                </p>
+                <p class="lead">
+                  <!-- Hidden Game Name Area -->
+                  <h2><span id="blanks"> </span></h2>
+                </p>
+
+                <!-- Guess Remaining -->
+                <p class="lead">
+                  <h4>Number of Guess Left: <span id="guesses-text">12</span></h4>
+                </p>
+
+                <!-- Letters Guessed Area -->
+                <p class="lead">
+                  <h2>Letters guessed <span id="user-text"><strong></strong></span></h2>
+                </p>
+
+              </section>
+            </main>
+          </div>
     <script src="./assets/javascript/game.js"></script>
 </body>

@@ -1,1 +1,37 @@
+/*{
+  margin:0;
+  padding:0;
+ } */
+html,
+body{
+  /* height:100%; */
+  background-color: #333;
+}
 
+.cover-container {
+  width:95%;
+  max-width: 950px;
+  min-height: 630px;
+  margin-top: 9.5rem;
+  padding-top: 10rem;
+  background-image: url('../images/tvstencil.png');
+  background-size: cover;
+  /* background-position: center; */
+  background-repeat: no-repeat;
+}
+
+.cover{
+  padding: 0 1.5rem;
+  color: #fff;
+}
+
+.box-1{
+  width:80%;
+  background-image:url('../images/tvstencil.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 2px solid white;
+}
+
+/* Game Play Area */
