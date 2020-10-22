@@ -9,6 +9,7 @@ var games = ["SUPER MARIO WORLD", "FINAL FANTASY III", "SONIC THE HEDGEHOG", "BA
 var arr=[];
 var arrblanks = [];
 var lettersGuessedArr = [];
+var guessedRightArr= [];
 
 // Creating variables to hold # of guesses & wins
 var guessesLeft = 12;
@@ -27,7 +28,7 @@ var blanksText = document.getElementById("blanks")
 //Randomly chooses a choice from the games array. This is the comp guess.
 var computerChoice = games[Math.floor(Math.random() * games.length)];
 
-console.log(computerChoice);//For testing purposes
+console.log(computerChoice.length);//For testing purposes
 
 //For loop that writes "_ " for every character
 for (i = 0; i < computerChoice.length; i++) {
@@ -39,6 +40,7 @@ for (i = 0; i < computerChoice.length; i++) {
         // blanksText.textContent += "_ ";
         arrblanks.push("_");
         arr.push(computerChoice[i]);
+        guessedRightArr.push(" ");
         
     } else {
         
@@ -55,37 +57,42 @@ blanksText.textContent += arrblanks.join(" ");
     //This code will listen for user keyboard inputs
     document.onkeyup = function(event) {
 
-        var regex = /^[a-z0-9]+$/;
+        // regex limiting input to alphanumeric chars only
+        var regex = /[a-zA-z0-9]/;
         
         //Prints user key strokes
         userKey = event.key;//used for win/guesses leftcheck
         
-        var userGuess = userKey.toUpperCase();console.log(userGuess);//changes userKey to upper case
+        //changes userKey to upper case
+        var userGuess = userKey.toUpperCase();console.log(userGuess);
         
-        if (/^[a-z0-9]+$/.test(userGuess)){
+        if (userGuess.match(regex) && computerChoice.includes(userGuess)) {
+            console.log("inside ")
 
-            if (computerChoice.includes(userGuess) && !arrblanks.includes(userGuess)){ 
+            // if (computerChoice.includes(userGuess)) { 
     
                 for (j = 0; j < computerChoice.length; j++) {
     
-                    if (userGuess == computerChoice[j]){  
+                    if (computerChoice[j] === userGuess){  
     
-                        //Checks for the same letter
-                        if (!arrblanks.includes(userGuess)){
-    
-                            //Changes blanks in position to userGuess
-                            arrblanks[j] = userGuess; console.log(arrblanks);
-            
-                            //Prints new arrblanks to html
-                            blanksText.textContent = arrblanks.join(" ");
-                            
-                            //Removes elements from the array
-                            arr.length--;
-                        }
+                        arr.splice(j, 1); 
+                        // j--;
+                        //Changes blanks in position to userGuess
+                        arrblanks[j] = userGuess; console.log(arrblanks);
+                        
+                        // userGuesss to html
+                        blanksText.textContent = arrblanks.join(" ");
+                        
+                        guessedRightArr.push(userGuess);
+                        //Removes elements from the array
+                        // arr.length--;
+                        console.log(j, computerChoice[j]);
+                        console.log(arr);
                     }
-    
+                    
                 }
-            }  else if (!lettersGuessedArr.includes(userGuess) && !arrblanks.includes(userGuess)) {
+            // }  
+             if (!lettersGuessedArr.includes(userGuess) && !arrblanks.includes(userGuess)) {
     
                     //Put wrong guess into an array
                     lettersGuessedArr.push(userGuess); console.log(lettersGuessedArr);
