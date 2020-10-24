@@ -73,7 +73,7 @@ blanksText.textContent += arrblanks.join(" ");
     
                 for (j = 0; j < computerChoice.length; j++) {
     
-                    if (computerChoice[j] === userGuess){  
+                    if (computerChoice[j] === userGuess && !guessedRightArr.includes(userGuess) ){  
     
                         arr.splice(j, 1); 
                         // j--;
